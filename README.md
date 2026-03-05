@@ -9,7 +9,8 @@
 
 ## 📹 Demo Video
 
-https://github.com/furkanbaskurthub-lgtm/iha-Goruntu-isleme-ve-coklu-Hedef-Takip-Sistemi/raw/main/outputs/demo/demo_video.mp4
+https://youtu.be/iE89eK5ZW8Q
+
 
 *İHA görüntüsü üzerinde gerçek zamanlı nesne tespiti, takip ve telemetri bilgileri*
 
