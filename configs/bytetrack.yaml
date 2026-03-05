@@ -1,0 +1,33 @@
+# ByteTrack Configuration for UAV Tracking
+# Optimized for drone (bird's eye view) object tracking
+
+# Tracker type
+tracker_type: bytetrack
+
+# Track buffer (frames to keep lost tracks)
+track_buffer: 30
+
+# Track activation threshold
+track_thresh: 0.5
+
+# High confidence detection threshold
+track_high_thresh: 0.6
+
+# Low confidence detection threshold (for association)
+track_low_thresh: 0.1
+
+# New track threshold
+new_track_thresh: 0.6
+
+# Match threshold for first association
+match_thresh: 0.8
+
+# Minimum box area
+min_box_area: 10
+
+# Motion model
+# Options: None, KalmanFilter
+mot20: False
+
+# Frame rate (for Kalman filter)
+frame_rate: 30

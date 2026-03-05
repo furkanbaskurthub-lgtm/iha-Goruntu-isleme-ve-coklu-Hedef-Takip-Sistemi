@@ -1,0 +1,26 @@
+# VisDrone Dataset Configuration for YOLO Training
+# Baykar İHA Projesi - Nesne Tespiti ve Takibi
+
+# Dataset root directory
+path: data/raw
+
+# Train/val/test splits
+train: VisDrone2019-DET-train/VisDrone2019-DET-train/images
+val: VisDrone2019-DET-val/VisDrone2019-DET-val/images
+test: VisDrone2019-DET-test-dev/VisDrone2019-DET-test-dev/images
+
+# Class names (10 sınıf)
+names:
+  0: pedestrian      # Yaya
+  1: people          # İnsan grubu
+  2: bicycle         # Bisiklet
+  3: car             # Araba
+  4: van             # Minibüs
+  5: truck           # Kamyon
+  6: tricycle        # Üç tekerlekli
+  7: awning-tricycle # Tenteli üç tekerlekli
+  8: bus             # Otobüs
+  9: motor           # Motosiklet
+
+# Number of classes
+nc: 10

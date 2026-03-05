@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  # Ana İHA Detection Servisi
+  iha-detection:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: baykar-iha-detection:latest
+    container_name: iha-detection-system
+    
+    # GPU erişimi (NVIDIA Docker runtime gerekli)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    
+    # Ortam değişkenleri
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONUNBUFFERED=1
+      - MODEL_PATH=/app/models/best.pt
+      - OUTPUT_DIR=/app/outputs
+    
+    # Volume mount'lar
+    volumes:
+      # Model dosyaları
+      - ./models:/app/models
+      # Veri seti
+      - ./data:/app/data
+      # Çıktılar
+      - ./outputs:/app/outputs
+      # Eğitim sonuçları
+      - ./runs:/app/runs
+      # Loglar
+      - ./logs:/app/logs
+    
+    # Port mapping (API için)
+    ports:
+      - "8000:8000"
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Komut (interaktif mod için override edilebilir)
+    command: python3 run_detection.py
+    
+    # Network
+    networks:
+      - iha-network
+
+  # Opsiyonel: Jupyter Notebook servisi (geliştirme için)
+  iha-notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: baykar-iha-detection:latest
+    container_name: iha-notebook
+    
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - JUPYTER_ENABLE_LAB=yes
+    
+    volumes:
+      - ./:/app
+    
+    ports:
+      - "8888:8888"
+    
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
+    
+    restart: unless-stopped
+    
+    networks:
+      - iha-network
+    
+    profiles:
+      - dev
+
+networks:
+  iha-network:
+    driver: bridge

@@ -1,0 +1,24 @@
+# Deep Learning & Computer Vision
+ultralytics>=8.1.0      # YOLOv8 ve YOLOv10 için ana kütüphane
+opencv-python>=4.8.0    # OpenCV (video/görüntü işleme)
+numpy<2.0.0             # Sayısal hesaplamalar
+torch>=2.0.0            # PyTorch (GPU desteği için)
+torchvision>=0.15.0     # PyTorch vision utilities
+
+# Tracking
+lap>=0.4.0              # Linear assignment problem solver (ByteTrack için)
+
+# Data Processing
+Pillow>=10.0.0          # Görüntü işleme
+tqdm>=4.65.0            # Progress bar
+
+# API & Backend (opsiyonel)
+fastapi                 # Modelimizi servis edeceğimiz framework
+uvicorn                 # FastAPI için ASGI sunucusu
+python-multipart        # API üzerinden dosya/video yüklemek için
+
+# Utilities
+python-dotenv           # .env dosyalarından ayar okumak için
+PyYAML                  # Konfigürasyon dosyaları için
+matplotlib>=3.7.0       # Grafik çizimi (eğitim sonuçları için)
+seaborn>=0.12.0         # İstatistiksel görselleştirme

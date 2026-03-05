@@ -1,0 +1,77 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.venv
+env/
+ENV/
+
+# Data
+data/raw/*
+!data/raw/VisDrone.yaml
+data/processed/
+*.zip
+*.tar.gz
+
+# Models & Weights
+*.pt
+*.pth
+*.onnx
+*.engine
+data/weights/
+runs/
+wandb/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Test outputs
+test_output/
+output/
+
+# Outputs (sadece demo video hariç)
+outputs/*
+!outputs/.gitkeep
+!outputs/demo/
+outputs/demo/*
+!outputs/demo/.gitkeep
+# Demo video çok büyük (213 MB > 100 MB GitHub limit)
+# outputs/demo/demo_video.mp4
+
+# Large datasets
+data/raw/VisDrone2019-DET-test-challenge/
+data/raw/VisDrone2019-DET-test-dev/
+data/images/
+data/labels/
+
+# Mission outputs
+outputs/missions/*/
+!outputs/missions/.gitkeep
