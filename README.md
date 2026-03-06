@@ -1,6 +1,7 @@
 # 🚁 İHA Görüntü İşleme ve Hedef Takip Sistemi
 <img width="1296" height="720" alt="image" src="https://github.com/user-attachments/assets/bdf4043f-c5c9-4e8b-9c48-d9d7a53182da" />
 
+[mission_report.json](https://github.com/user-attachments/files/25796438/mission_report.json) Bu şekilde konum bilgilerine erişim ve ID ile gruplanmandırma kayıt geçmişine json formatında erişebiliyoruz.
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red.svg)](https://pytorch.org/)
