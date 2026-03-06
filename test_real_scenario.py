@@ -255,7 +255,47 @@ def test_scenario_2_video_mission():
     for cls, count in sorted(class_counts.items(), key=lambda x: x[1], reverse=True):
         print(f"   • {cls}: {count}")
     
-    print(f"\n💾 Video kaydedildi: {output_video_path}")
+    # Mission report oluştur
+    import json
+    
+    mission_report = {
+        "mission_id": system.mission_id,
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "video_info": {
+            "source": str(video_path),
+            "total_frames": total_frames,
+            "processed_frames": frame_count,
+            "fps": fps,
+            "resolution": f"{width}x{height}",
+            "duration_seconds": total_frames / fps
+        },
+        "uav_parameters": {
+            "altitude_m": altitude,
+            "gps": uav_gps if uav_gps else None
+        },
+        "detection_summary": {
+            "total_detections": total_detections,
+            "unique_tracks": len(all_track_ids),
+            "class_distribution": class_counts,
+            "avg_detections_per_frame": total_detections / frame_count if frame_count > 0 else 0
+        },
+        "performance": {
+            "processing_time_seconds": processing_time,
+            "processing_fps": frame_count / processing_time if processing_time > 0 else 0
+        },
+        "output": {
+            "video_path": str(output_video_path),
+            "video_size_mb": output_video_path.stat().st_size / 1024 / 1024
+        }
+    }
+    
+    # JSON olarak kaydet
+    report_path = output_dir / 'mission_report.json'
+    with open(report_path, 'w', encoding='utf-8') as f:
+        json.dump(mission_report, f, indent=2, ensure_ascii=False)
+    
+    print(f"\n💾 Rapor kaydedildi: {report_path}")
+    print(f"💾 Video kaydedildi: {output_video_path}")
     print(f"📁 Dosya boyutu: {output_video_path.stat().st_size / 1024 / 1024:.1f} MB")
     print("=" * 70)
 
