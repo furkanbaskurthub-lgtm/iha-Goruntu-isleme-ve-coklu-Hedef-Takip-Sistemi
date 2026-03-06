@@ -1,4 +1,6 @@
 # 🚁 İHA Görüntü İşleme ve Hedef Takip Sistemi
+<img width="1296" height="720" alt="image" src="https://github.com/user-attachments/assets/bdf4043f-c5c9-4e8b-9c48-d9d7a53182da" />
+
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red.svg)](https://pytorch.org/)
@@ -10,6 +12,7 @@
 ## 📹 Demo Video
 
 https://youtu.be/iE89eK5ZW8Q
+![Uploading image.png…]()
 
 
 *İHA görüntüsü üzerinde gerçek zamanlı nesne tespiti, takip ve telemetri bilgileri*
